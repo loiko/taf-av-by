@@ -336,7 +336,6 @@ public class AdsPage extends BasePage {
             String carMileage = text.replaceAll("[\\p{Z}\\sкм]", "");
             adCarMileages.add(carMileage);
         }
-        System.out.println(adCarMileages);
         return adCarMileages;
     }
 
@@ -401,7 +400,6 @@ public class AdsPage extends BasePage {
             String engineType = parts[2];
             adEngineTypes.add(engineType);
         }
-        System.out.println(adEngineTypes);
         return adEngineTypes;
     }
 }
