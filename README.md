@@ -18,12 +18,30 @@
 ## Deploying Jenkins
 To deploy Jenkins locally in Docker:
 1. Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-2. Build a custom Jenkins image from the directory where the Dockerfile is located using the docker build command ```docker build . -t myjenkins```
-3. Run image: ```docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home myjenkins```
-4. Make sure that the container named "jenkins" is running using the docker command ```docker ps```
-5. You can get information about the container using the command ```docker inspect jenkins```
-6. Jenkins is available at ```http://localhost:8080/```
-7. To use the admin/password from the initialAdminPassword file for the first login, which can be viewed using the docker command ```docker exec cat var/jenkins_home/secrets/initialAdminPassword```
+2. Build a custom Jenkins image from the directory where the Dockerfile is located using the docker build command
+```bash
+docker build . -t myjenkins
+```
+3. Run image: 
+```bash
+docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home myjenkins
+```
+4. Make sure that the container named "jenkins" is running using the docker command 
+```bash
+docker ps
+```
+5. You can get information about the container using the command 
+```bash
+docker inspect jenkins
+```
+6. Jenkins is available at 
+```bash
+http://localhost:8080/
+```
+7. To use the admin/password from the initialAdminPassword file for the first login, which can be viewed using the docker command 
+```bash
+docker exec cat var/jenkins_home/secrets/initialAdminPassword
+```
 
 ## Configuring Jenkins
 Installation of the Allure Jenkins Plugin is required
@@ -61,11 +79,11 @@ To install the plugin:
 To run the project locally, install [Maven](https://maven.apache.org/download.cgi) and [Java](https://www.java.com/en/download/) to the local machine, enter the following commands in the console:
 
 ```bash
- mvn clean test
+mvn clean test
 ```
 
 ```bash
- allure:install
+allure:install
 ```
 ```bash
 mvn allure:report
