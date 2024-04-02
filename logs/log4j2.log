@@ -199,3 +199,87 @@ Session ID: 528279c590bd02e1de51b8e81915e4ad
 2024-04-02 13:03:27,140 INFO b.a.t.s.Singleton [main] Quitting WebDriver
 2024-04-02 13:03:27,370 INFO u.BaseTest [main] WebDriver closed
 2024-04-02 13:04:31,960 INFO a.VinNumberTest [main] Test 'testSearchAdByVinNumber' passed successfully
+2024-04-02 17:44:12,773 INFO a.BaseURLTest [main] Base URL test passed successfully
+2024-04-02 17:44:17,118 INFO a.LoginTest [main] Test 'testInvalidLoginAndPassword' passed successfully
+2024-04-02 17:44:17,410 INFO a.VinNumberTest [main] Test 'testCheckInvalidVinNumber' passed successfully
+2024-04-02 17:44:17,705 INFO a.VinNumberTest [main] Test 'testInvalidLoginAndPassword' passed successfully
+2024-04-02 17:44:18,563 INFO a.VinNumberTest [main] Test 'testSearchAdByVinNumber' passed successfully
+2024-04-02 17:44:18,744 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 17:44:33,268 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:44:33,269 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 17:44:36,902 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 17:44:36,904 INFO u.BaseTest [main] Home page opened
+2024-04-02 17:44:36,905 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:44:36,906 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 17:44:36,908 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:44:36,909 INFO b.a.t.p.AdsPage [main] AdsPage instance created
+2024-04-02 17:44:37,440 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 17:44:39,063 INFO b.a.t.p.BasePage [main] Navigated to ads page
+2024-04-02 17:44:39,064 INFO u.AdsPageTest [main] Ads page setup complete
+2024-04-02 17:44:39,908 INFO b.a.t.p.AdsPage [main] Max price entered: 35000
+2024-04-02 17:44:40,183 INFO b.a.t.p.AdsPage [main] Car brand dropdown clicked
+2024-04-02 17:44:54,606 INFO b.a.t.p.AdsPage [main] Car brand 'Toyota' selected
+2024-04-02 17:44:55,823 INFO b.a.t.p.AdsPage [main] Car model dropdown clicked
+2024-04-02 17:44:57,042 INFO b.a.t.p.AdsPage [main] Car model'RAV4' selected
+2024-04-02 17:44:59,167 INFO b.a.t.p.AdsPage [main] Car generation dropdown clicked
+2024-04-02 17:45:00,424 INFO b.a.t.p.AdsPage [main] Car generation'V' selected
+2024-04-02 17:45:01,945 INFO b.a.t.p.AdsPage [main] Min car year dropdown clicked
+2024-04-02 17:45:04,148 INFO b.a.t.p.AdsPage [main] Min car year '2020' selected
+2024-04-02 17:45:05,229 INFO b.a.t.p.AdsPage [main] Min engine dropdown clicked
+2024-04-02 17:45:08,680 INFO b.a.t.p.AdsPage [main] Min engine '2,5' selected
+2024-04-02 17:45:10,095 INFO b.a.t.p.AdsPage [main] Parameters button clicked
+2024-04-02 17:45:10,884 INFO b.a.t.p.AdsPage [main] Region dropdown clicked
+2024-04-02 17:45:11,385 INFO b.a.t.p.AdsPage [main] Region 'Минская обл.' selected
+2024-04-02 17:45:11,666 INFO b.a.t.p.AdsPage [main] Max mileage dropdown clicked
+2024-04-02 17:45:12,651 INFO b.a.t.p.AdsPage [main] Registration country dropdown clicked
+2024-04-02 17:45:13,244 INFO b.a.t.p.AdsPage [main] VIN checkbox clicked
+2024-04-02 17:45:14,404 INFO b.a.t.p.AdsPage [main] City dropdown clicked
+2024-04-02 17:45:15,561 INFO b.a.t.p.AdsPage [main] City  'Минск' selected
+2024-04-02 17:45:18,174 INFO b.a.t.p.AdsPage [main] Show result button clicked
+2024-04-02 17:45:21,984 INFO b.a.t.p.AdsPage [main] Retrieved ads brands: Toyota
+2024-04-02 17:45:24,765 INFO b.a.t.p.AdsPage [main] Retrieved ads models: RAV4
+2024-04-02 17:45:27,179 INFO b.a.t.p.AdsPage [main] Retrieved ads generations: V
+2024-04-02 17:45:29,653 INFO b.a.t.p.AdsPage [main] Retrieved ads car years: [2020, 2020, 2021, 2020, 2021, 2022, 2020, 2022, 2020, 2020, 2021, 2020, 2022, 2021, 2020, 2020, 2022, 2021]
+2024-04-02 17:45:29,667 INFO b.a.t.U.Utils [main] Value 2020 is minimum 2020: true
+2024-04-02 17:45:29,667 INFO b.a.t.p.AdsPage [main] Min car year found: 2020
+2024-04-02 17:45:31,627 INFO b.a.t.p.AdsPage [main] Retrieved ads USD prices: [29950, 32500, 35000, 32000, 35000, 37700, 33500, 39800, 31174, 49900, 35900, 34500, 36500, 29900, 35600, 34000, 39200, 40000]
+2024-04-02 17:45:31,628 INFO b.a.t.U.Utils [main] Value 29950 is maximum 35000: true
+2024-04-02 17:45:31,628 INFO b.a.t.p.AdsPage [main] Max USD price found: 35000
+2024-04-02 17:45:32,512 INFO b.a.t.p.AdsPage [main] Retrieved ads engine capacities: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5]
+2024-04-02 17:45:32,512 INFO b.a.t.U.Utils [main] Value 2.5 is minimum 2.5: true
+2024-04-02 17:45:32,513 INFO b.a.t.p.AdsPage [main] Min engine found: 2.5
+2024-04-02 17:45:32,812 INFO b.a.t.p.AdsPage [main] Retrieved ads car mileages: [12700, 49000, 3500, 85000, 125809, 8900, 53900, 49800, 30000, 6892, 55638, 58000, 4800, 18000, 104000, 35000, 39000, 44000]
+2024-04-02 17:45:32,812 INFO b.a.t.U.Utils [main] Value 12700 is maximum 200000: true
+2024-04-02 17:45:32,813 INFO b.a.t.p.AdsPage [main] Max car mileage found: 200000
+2024-04-02 17:45:33,131 INFO b.a.t.p.AdsPage [main] Retrieved ads car cities: [Минск]
+2024-04-02 17:45:33,216 INFO b.a.t.p.AdsPage [main] Total number of ads retrieved: 18
+2024-04-02 17:45:33,216 INFO b.a.t.p.AdsPage [main] Ads contain VIN: True
+2024-04-02 17:45:33,216 INFO u.AdsPageTest [main] Actual advertisement car parameters: {Brand=Toyota, Generation=V, Car year from=2020, Mileage from=200000, Model=RAV4, Engine capacity from=2.5, VIN=True, City=Минск, Car price to=35000}
+2024-04-02 17:45:33,217 INFO u.AdsPageTest [main] Expected advertisement car parameters: {Brand=Toyota, Generation=V, Car year from=2020, Mileage from=200000, Model=RAV4, Engine capacity from=2.5, VIN=True, City=Минск, Car price to=35000}
+2024-04-02 17:45:33,233 INFO u.AdsPageTest [main] Test 'SearchCarsByFilter' passed successfully
+2024-04-02 17:45:33,239 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 17:45:33,672 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 17:45:33,689 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 17:45:40,852 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:45:40,853 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 17:45:43,215 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 17:45:43,215 INFO u.BaseTest [main] Home page opened
+2024-04-02 17:45:43,216 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:45:43,216 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 17:45:43,686 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 17:45:43,814 INFO b.a.t.p.HomePage [main] Main title text retrieved
+2024-04-02 17:45:43,866 INFO u.HomePageTest [main] Main title text matches the expected pattern
+2024-04-02 17:45:43,866 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 17:45:44,096 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 17:45:44,105 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 17:45:48,917 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:45:48,918 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 17:45:51,512 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 17:45:51,513 INFO u.BaseTest [main] Home page opened
+2024-04-02 17:45:51,513 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 17:45:51,513 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 17:45:51,955 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 17:45:52,067 INFO b.a.t.p.BasePage [main] Copyright text retrieved
+2024-04-02 17:45:52,114 INFO u.HomePageTest [main] Copyright text matches the expected value
+2024-04-02 17:45:52,115 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 17:45:52,332 INFO u.BaseTest [main] WebDriver closed
