@@ -2,6 +2,8 @@ package by.av.taf.po;
 
 import by.av.taf.Utils.Utils;
 import by.av.taf.singleton.Singleton;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,6 +14,7 @@ import java.util.*;
 public class AdsPage extends BasePage {
     private WebDriver driver;
     WebDriverWait wait;
+    private static final Logger logger = LogManager.getLogger();
     private By parametersButtonLocator = By.xpath("//button[@class = 'button button--link'][1]");
     private By showResultButtonLocator = By.xpath("//div[@class = 'filter__show-result']");
     private By brandDropdownLocator = By.xpath("//button[@name = 'p-6-0-2-brand']");
@@ -50,356 +53,538 @@ public class AdsPage extends BasePage {
     public AdsPage() {
         this.driver = Singleton.getDriver();
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        logger.info("AdsPage instance created");
     }
 
     private int getTotalNumberOfAds() {
-        List<WebElement> adElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((adLocator)));
-        return adElements.size();
+        try {
+            List<WebElement> adElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((adLocator)));
+            logger.info("Total number of ads retrieved: {}", adElements.size());
+            return adElements.size();
+        } catch (Exception e) {
+            logger.error("Failed to retrieve total number of ads: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public AdsPage clickParametersButton() {
-        WebElement parametersButton = wait.until(ExpectedConditions.elementToBeClickable(parametersButtonLocator));
-        parametersButton.click();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 400);");
-        return this;
+        try {
+            WebElement parametersButton = wait.until(ExpectedConditions.elementToBeClickable(parametersButtonLocator));
+            parametersButton.click();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("window.scrollBy(0, 400);");
+            logger.info("Parameters button clicked");
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to click parameters button: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public AdsPage clickShowResultButton() {
-        WebElement showResultButton = wait.until(ExpectedConditions.elementToBeClickable(showResultButtonLocator));
-        showResultButton.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(adTitleLocator));
-        return this;
+        try {
+            WebElement showResultButton = wait.until(ExpectedConditions.elementToBeClickable(showResultButtonLocator));
+            showResultButton.click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(adTitleLocator));
+            logger.info("Show result button clicked");
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to click show result button: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public AdsPage clickVinCheckbox() {
-        WebElement vinCheckbox = wait.until(ExpectedConditions.elementToBeClickable(vinCheckboxLocator));
-        vinCheckbox.click();
-        return this;
+        try {
+            WebElement vinCheckbox = wait.until(ExpectedConditions.elementToBeClickable(vinCheckboxLocator));
+            vinCheckbox.click();
+            logger.info("VIN checkbox clicked");
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to click VIN checkbox: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public AdsPage enterPriceMin(String minPrice) {
-        WebElement priceMinInput = wait.until(ExpectedConditions.visibilityOfElementLocated(priceMinInputLocator));
-        priceMinInput.sendKeys(minPrice, Keys.ENTER);
-        return this;
+        try {
+            WebElement priceMinInput = wait.until(ExpectedConditions.visibilityOfElementLocated(priceMinInputLocator));
+            priceMinInput.sendKeys(minPrice, Keys.ENTER);
+            logger.info("Min price entered: {}", minPrice);
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to enter min price: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public AdsPage enterPriceMax(String maxPrice) {
-        WebElement priceMaxInput = wait.until(ExpectedConditions.visibilityOfElementLocated(priceMaxInputLocator));
-        priceMaxInput.sendKeys(maxPrice, Keys.ENTER);
-        return this;
+        try {
+            WebElement priceMaxInput = wait.until(ExpectedConditions.visibilityOfElementLocated(priceMaxInputLocator));
+            priceMaxInput.sendKeys(maxPrice, Keys.ENTER);
+            logger.info("Max price entered: {}", maxPrice);
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to enter max price: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public AdsPage selectBrand(String brandName) {
-        WebElement brandDropdown = wait.until(ExpectedConditions.elementToBeClickable(brandDropdownLocator));
-        brandDropdown.click();
-        List<WebElement> brandOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(brandOptionLocator));
-        for (WebElement brandOption : brandOptions) {
-            if (brandOption.getText().equals(brandName)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", brandOption);
-                brandOption.click();
-                break;
+        try {
+            WebElement brandDropdown = wait.until(ExpectedConditions.elementToBeClickable(brandDropdownLocator));
+            brandDropdown.click();
+            logger.info("Car brand dropdown clicked");
+            List<WebElement> brandOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(brandOptionLocator));
+            for (WebElement brandOption : brandOptions) {
+                if (brandOption.getText().equals(brandName)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", brandOption);
+                    brandOption.click();
+                    logger.info("Car brand '{}' selected", brandName);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select car brand '{}': {}", brandName, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectModel(String modelName) {
-        WebElement modelDropdown = wait.until(ExpectedConditions.elementToBeClickable(modelDropdownLocator));
-        modelDropdown.click();
-        List<WebElement> modelOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(modelOptionLocator));
-        for (WebElement modelOption : modelOptions) {
-            if (modelOption.getText().equals(modelName)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", modelOption);
-                modelOption.click();
-                break;
+        try {
+            WebElement modelDropdown = wait.until(ExpectedConditions.elementToBeClickable(modelDropdownLocator));
+            modelDropdown.click();
+            logger.info("Car model dropdown clicked");
+            List<WebElement> modelOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(modelOptionLocator));
+            for (WebElement modelOption : modelOptions) {
+                if (modelOption.getText().equals(modelName)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", modelOption);
+                    modelOption.click();
+                    logger.info("Car model'{}' selected", modelName);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select car model '{}': {}", modelName, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectGeneration(String generationName) {
-        WebElement generationDropdown = wait.until(ExpectedConditions.elementToBeClickable(generationDropdownLocator));
-        generationDropdown.click();
-        List<WebElement> generationOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(generationOptionLocator));
-        for (WebElement generationOption : generationOptions) {
-            if (generationOption.getText().contains(generationName)) {
-                generationOption.click();
-                break;
+        try {
+            WebElement generationDropdown = wait.until(ExpectedConditions.elementToBeClickable(generationDropdownLocator));
+            generationDropdown.click();
+            logger.info("Car generation dropdown clicked");
+            List<WebElement> generationOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(generationOptionLocator));
+            for (WebElement generationOption : generationOptions) {
+                if (generationOption.getText().contains(generationName)) {
+                    generationOption.click();
+                    logger.info("Car generation'{}' selected", generationName);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select car generation' '{}': {}", generationName, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectCarYearMin(String minCarYear) {
-        WebElement yearMinDropdown = wait.until(ExpectedConditions.elementToBeClickable(yearMinDropdownLocator));
-        yearMinDropdown.click();
-        List<WebElement> yearFromOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(yearMinOptionLocator));
-        for (WebElement yearFromOption : yearFromOptions) {
-            if (yearFromOption.getText().equals(minCarYear)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", yearFromOption);
-                yearFromOption.click();
-                break;
+        try {
+            WebElement yearMinDropdown = wait.until(ExpectedConditions.elementToBeClickable(yearMinDropdownLocator));
+            yearMinDropdown.click();
+            logger.info("Min car year dropdown clicked");
+            List<WebElement> yearFromOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(yearMinOptionLocator));
+            for (WebElement yearFromOption : yearFromOptions) {
+                if (yearFromOption.getText().equals(minCarYear)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", yearFromOption);
+                    yearFromOption.click();
+                    logger.info("Min car year '{}' selected", minCarYear);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select min car year '{}': {}", minCarYear, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
-    public AdsPage selectCarYearMax(String yearTo) {
-        WebElement yearMaxDropdown = wait.until(ExpectedConditions.elementToBeClickable(yearMaxDropdownLocator));
-        yearMaxDropdown.click();
-        List<WebElement> yearToOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(yearMaxOptionLocator));
-        for (WebElement yearToOption : yearToOptions) {
-            if (yearToOption.getText().equals(yearTo)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", yearToOption);
-                yearToOption.click();
-                break;
+    public AdsPage selectCarYearMax(String maxCarYear) {
+        try {
+            WebElement yearMaxDropdown = wait.until(ExpectedConditions.elementToBeClickable(yearMaxDropdownLocator));
+            yearMaxDropdown.click();
+            logger.info("Max car year dropdown clicked");
+            List<WebElement> yearToOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(yearMaxOptionLocator));
+            for (WebElement yearToOption : yearToOptions) {
+                if (yearToOption.getText().equals(maxCarYear)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", yearToOption);
+                    yearToOption.click();
+                    logger.info("Max car year '{}' selected", maxCarYear);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select max car year '{}': {}", maxCarYear, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectEngineMin(String minEngine) {
-        WebElement engineMinDropdown = wait.until(ExpectedConditions.elementToBeClickable(engineMinDropdownLocator));
-        engineMinDropdown.click();
-        List<WebElement> engineMinOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(engineMinOptionLocator));
-        for (WebElement engineMinOption : engineMinOptions) {
-            if (engineMinOption.getText().contains(minEngine)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", engineMinOption);
-                engineMinOption.click();
-                break;
+        try {
+            WebElement engineMinDropdown = wait.until(ExpectedConditions.elementToBeClickable(engineMinDropdownLocator));
+            engineMinDropdown.click();
+            logger.info("Min engine dropdown clicked");
+            List<WebElement> engineMinOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(engineMinOptionLocator));
+            for (WebElement engineMinOption : engineMinOptions) {
+                if (engineMinOption.getText().contains(minEngine)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", engineMinOption);
+                    engineMinOption.click();
+                    logger.info("Min engine '{}' selected", minEngine);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select min engine '{}': {}", minEngine, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectEngineMax(String maxEngine) {
-        WebElement engineMaxDropdown = wait.until(ExpectedConditions.elementToBeClickable(engineMaxDropdownLocator));
-        engineMaxDropdown.click();
-        List<WebElement> engineMaxOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(engineMaxOptionLocator));
-        for (WebElement engineMaxOption : engineMaxOptions) {
-            if (engineMaxOption.getText().contains(maxEngine)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", engineMaxOption);
-                engineMaxOption.click();
-                break;
+        try {
+            WebElement engineMaxDropdown = wait.until(ExpectedConditions.elementToBeClickable(engineMaxDropdownLocator));
+            engineMaxDropdown.click();
+            logger.info("Max engine dropdown clicked");
+            List<WebElement> engineMaxOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(engineMaxOptionLocator));
+            for (WebElement engineMaxOption : engineMaxOptions) {
+                if (engineMaxOption.getText().contains(maxEngine)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", engineMaxOption);
+                    engineMaxOption.click();
+                    logger.info("Max engine '{}' selected", maxEngine);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select max engine '{}': {}", maxEngine, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
-    public AdsPage selectRegion(String region) throws InterruptedException {
-        WebElement regionDropdown = wait.until(ExpectedConditions.elementToBeClickable(regionDropdownLocator));
-        regionDropdown.click();
-        List<WebElement> regionOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(regionOptionLocator));
-        for (WebElement regionOption : regionOptions) {
-            if (regionOption.getText().equals(region)) {
-                regionOption.click();
-                break;
+    public AdsPage selectRegion(String region) {
+        try {
+            WebElement regionDropdown = wait.until(ExpectedConditions.elementToBeClickable(regionDropdownLocator));
+            regionDropdown.click();
+            logger.info("Region dropdown clicked");
+            List<WebElement> regionOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(regionOptionLocator));
+            for (WebElement regionOption : regionOptions) {
+                if (regionOption.getText().equals(region)) {
+                    regionOption.click();
+                    logger.info("Region '{}' selected", region);
+                    break;
+                }
             }
+            wait.until(ExpectedConditions.visibilityOfElementLocated(cityDropdownLocator));
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select region '{}': {}", region, e.getMessage());
+            throw e;
         }
-        wait.until(ExpectedConditions.visibilityOfElementLocated(cityDropdownLocator));
-        return this;
     }
 
     public AdsPage selectRegistrationCountry(String country) {
-        WebElement registrationCountryDropdown = wait.until(ExpectedConditions.elementToBeClickable(registrationCountyDropdownLocator));
-        registrationCountryDropdown.click();
-        List<WebElement> registrationCountries = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(generationOptionLocator));
-        for (WebElement registrationCountry : registrationCountries) {
-            if (registrationCountry.getText().equals(country)) {
-                registrationCountry.click();
-                break;
+        try {
+            WebElement registrationCountryDropdown = wait.until(ExpectedConditions.elementToBeClickable(registrationCountyDropdownLocator));
+            registrationCountryDropdown.click();
+            logger.info("Registration country dropdown clicked");
+            List<WebElement> registrationCountries = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(generationOptionLocator));
+            for (WebElement registrationCountry : registrationCountries) {
+                if (registrationCountry.getText().equals(country)) {
+                    registrationCountry.click();
+                    logger.info("Registration country  '{}' selected", country);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select registration country  '{}': {}", country, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectCity(String city) {
-        WebElement cityDropdown = wait.until(ExpectedConditions.elementToBeClickable(cityDropdownLocator));
-        cityDropdown.click();
-        List<WebElement> cityOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(cityOptionLocator));
-        for (WebElement cityOption : cityOptions) {
-            if (cityOption.getText().equals(city)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityOption);
-                cityOption.click();
-                break;
+        try {
+            WebElement cityDropdown = wait.until(ExpectedConditions.elementToBeClickable(cityDropdownLocator));
+            cityDropdown.click();
+            logger.info("City dropdown clicked");
+            List<WebElement> cityOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(cityOptionLocator));
+            for (WebElement cityOption : cityOptions) {
+                if (cityOption.getText().equals(city)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", cityOption);
+                    cityOption.click();
+                    logger.info("City  '{}' selected", city);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select city '{}': {}", city, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public AdsPage selectMaxMileage(String maxMileage) {
-        WebElement maxMileageDropdown = wait.until(ExpectedConditions.elementToBeClickable(mileageDropdownLocator));
-        maxMileageDropdown.click();
-        List<WebElement> cityOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(mileageOptionLocator));
-        for (WebElement mileageOption : cityOptions) {
-            if (mileageOption.getText().equals(maxMileage)) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", mileageOption);
-                mileageOption.click();
-                break;
+        try {
+            WebElement maxMileageDropdown = wait.until(ExpectedConditions.elementToBeClickable(mileageDropdownLocator));
+            maxMileageDropdown.click();
+            logger.info("Max mileage dropdown clicked");
+            List<WebElement> cityOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(mileageOptionLocator));
+            for (WebElement mileageOption : cityOptions) {
+                if (mileageOption.getText().equals(maxMileage)) {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", mileageOption);
+                    mileageOption.click();
+                    logger.info("Max mileage '{}' selected", maxMileage);
+                    break;
+                }
             }
+            return this;
+        } catch (Exception e) {
+            logger.error("Failed to select max mileage'{}': {}", maxMileage, e.getMessage());
+            throw e;
         }
-        return this;
     }
 
     public String getAdsBrand() {
         Set<String> adBrands = new HashSet<>();
-        List<WebElement> adBrandElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adTitleLocator));
-        for (WebElement adBrand : adBrandElements) {
-            String text = adBrand.getText();
-            String[] parts = text.split(" ");
-            String brand = parts[0];
-            adBrands.add(brand);
+        try {
+            List<WebElement> adBrandElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adTitleLocator));
+            for (WebElement adBrand : adBrandElements) {
+                String text = adBrand.getText();
+                String[] parts = text.split(" ");
+                String brand = parts[0];
+                adBrands.add(brand);
+            }
+            String result = adBrands.toString();
+            result = result.substring(1, result.length() - 1);
+            logger.info("Retrieved ads brands: {}", result);
+            return result;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads brands: {}", e.getMessage());
+            return null;
         }
-        String result = adBrands.toString();
-        result = result.substring(1, result.length() - 1);
-        return result;
     }
 
     public String getAdsModel() {
         Set<String> adModels = new HashSet<>();
-        List<WebElement> adModelElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adTitleLocator));
-        for (WebElement adModel : adModelElements) {
-            String text = adModel.getText();
-            String[] parts = text.split(" ");
-            String model = parts[1];
-            adModels.add(model);
+        try {
+            List<WebElement> adModelElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adTitleLocator));
+            for (WebElement adModel : adModelElements) {
+                String text = adModel.getText();
+                String[] parts = text.split(" ");
+                String model = parts[1];
+                adModels.add(model);
+            }
+            String result = adModels.toString();
+            result = result.substring(1, result.length() - 1);
+            logger.info("Retrieved ads models: {}", result);
+            return result;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads models: {}", e.getMessage());
+            return null;
         }
-        String result = adModels.toString();
-        result = result.substring(1, result.length() - 1);
-        return result;
     }
 
     public String getAdsGeneration() {
         Set<String> adGenerations = new HashSet<>();
-        List<WebElement> adGenerationElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adTitleLocator));
-        for (WebElement adGeneration : adGenerationElements) {
-            String text = adGeneration.getText();
-            String[] parts = text.split(" ");
-            String generation = parts[2];
-            adGenerations.add(generation);
+        try {
+            List<WebElement> adGenerationElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adTitleLocator));
+            for (WebElement adGeneration : adGenerationElements) {
+                String text = adGeneration.getText();
+                String[] parts = text.split(" ");
+                String generation = parts[2];
+                adGenerations.add(generation);
+            }
+            String result = adGenerations.toString();
+            result = result.substring(1, result.length() - 1);
+            logger.info("Retrieved ads generations: {}", result);
+            return result;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads generations: {}", e.getMessage());
+            return null;
         }
-        String result = adGenerations.toString();
-        result = result.substring(1, result.length() - 1);
-        return result;
     }
 
     public List<String> getAdsUsdPrice() {
         List<String> adUsdPrices = new ArrayList<>();
-        List<WebElement> adUsdPriceElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adUsdPriceLocator));
-        for (WebElement adUsdPrice : adUsdPriceElements) {
-            String text = adUsdPrice.getText();
-            String usdPrice = text.replaceAll("[\\p{Z}\\s$≈]", "");
-            adUsdPrices.add(usdPrice);
+        try {
+            List<WebElement> adUsdPriceElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adUsdPriceLocator));
+            for (WebElement adUsdPrice : adUsdPriceElements) {
+                String text = adUsdPrice.getText();
+                String usdPrice = text.replaceAll("[\\p{Z}\\s$≈]", "");
+                adUsdPrices.add(usdPrice);
+            }
+            logger.info("Retrieved ads USD prices: {}", adUsdPrices);
+            return adUsdPrices;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads USD prices: {}", e.getMessage());
+            return null;
         }
-        return adUsdPrices;
     }
 
     public String getAdCarUsdPriceMax(String maxPrice) {
         List<String> adUsdPrices = getAdsUsdPrice();
-        for (String adUsdPrice : adUsdPrices) {
-            int usdPrice = Integer.parseInt(adUsdPrice);
-            if (Utils.isItMax(usdPrice, Integer.parseInt(maxPrice))) {
-                return maxPrice;
+        try {
+            for (String adUsdPrice : adUsdPrices) {
+                int usdPrice = Integer.parseInt(adUsdPrice);
+                if (Utils.isItMax(usdPrice, Integer.parseInt(maxPrice))) {
+                    logger.info("Max USD price found: {}", maxPrice);
+                    return maxPrice;
+                }
             }
+        } catch (NumberFormatException e) {
+            logger.error("Failed to parse USD price: {}", e.getMessage());
         }
+        logger.warn("No ad with max USD price found");
         return null;
     }
 
     public List<String> getAdsCarYear() {
         List<String> adCarYears = new ArrayList<>();
-        List<WebElement> adCarYearElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarYearLocator));
-        for (WebElement adCarYear : adCarYearElements) {
-            String text = adCarYear.getText();
-            String carYear = text.replaceAll("[\\sг.]", "");
-            adCarYears.add(carYear);
+        try {
+            List<WebElement> adCarYearElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarYearLocator));
+            for (WebElement adCarYear : adCarYearElements) {
+                String text = adCarYear.getText();
+                String carYear = text.replaceAll("[\\sг.]", "");
+                adCarYears.add(carYear);
+            }
+            logger.info("Retrieved ads car years: {}", adCarYears);
+            return adCarYears;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads car years: {}", e.getMessage());
+            throw e;
         }
-        return adCarYears;
     }
 
     public String getAdCarYearMin(String minCarYear) {
         List<String> adCarYears = getAdsCarYear();
-        for (String adCarYear : adCarYears) {
-            int carYear = Integer.parseInt(adCarYear);
-            if (Utils.isItMin(carYear, Integer.parseInt(minCarYear))) {
-                return minCarYear;
+        try {
+            for (String adCarYear : adCarYears) {
+                int carYear = Integer.parseInt(adCarYear);
+                if (Utils.isItMin(carYear, Integer.parseInt(minCarYear))) {
+                    logger.info("Min car year found: {}", minCarYear);
+                    return minCarYear;
+                }
             }
+            return null;
+        } catch (Exception e) {
+            logger.error("Failed to find min car year: {}", e.getMessage());
+            throw e;
         }
-        return null;
     }
 
     public List<String> getAdsCarMileage() {
         List<String> adCarMileages = new ArrayList<>();
-        List<WebElement> adCarMileageElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarMileageLocator));
-        for (WebElement adCarMileage : adCarMileageElements) {
-            String text = adCarMileage.getText();
-            String carMileage = text.replaceAll("[\\p{Z}\\sкм]", "");
-            adCarMileages.add(carMileage);
+        try {
+            List<WebElement> adCarMileageElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarMileageLocator));
+            for (WebElement adCarMileage : adCarMileageElements) {
+                String text = adCarMileage.getText();
+                String carMileage = text.replaceAll("[\\p{Z}\\sкм]", "");
+                adCarMileages.add(carMileage);
+            }
+            logger.info("Retrieved ads car mileages: {}", adCarMileages);
+            return adCarMileages;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads car mileages: {}", e.getMessage());
+            throw e;
         }
-        return adCarMileages;
     }
 
     public String getAdCarMileageMax(String maxMileage) {
         List<String> adCarMileages = getAdsCarMileage();
-        for (String adCarMileage : adCarMileages) {
-            int carMileages = Integer.parseInt(adCarMileage);
-            if (Utils.isItMax(carMileages, Integer.parseInt(maxMileage))) {
-                return maxMileage;
+        try {
+            for (String adCarMileage : adCarMileages) {
+                int carMileages = Integer.parseInt(adCarMileage);
+                if (Utils.isItMax(carMileages, Integer.parseInt(maxMileage))) {
+                    logger.info("Max car mileage found: {}", maxMileage);
+                    return maxMileage;
+                }
             }
+            return null;
+        } catch (Exception e) {
+            logger.error("Failed to find max car mileage: {}", e.getMessage());
+            throw e;
         }
-        return null;
     }
 
     public String getAdsCity() {
         Set<String> adCities = new HashSet<>();
-        List<WebElement> adCityElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCityLocator));
-        for (WebElement adCity : adCityElements) {
-            adCities.add(adCity.getText());
+        try {
+            List<WebElement> adCityElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCityLocator));
+            for (WebElement adCity : adCityElements) {
+                adCities.add(adCity.getText());
+            }
+            String result = adCities.toString();
+            result = result.substring(1, result.length() - 1);
+            logger.info("Retrieved ads car cities: {}", adCities);
+            return result;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve advertisement car cities: {}", e.getMessage());
+            throw e;
         }
-        String result = adCities.toString();
-        result = result.substring(1, result.length() - 1);
-        return result;
     }
 
     public String isAdsContainVin() {
-        List<WebElement> vinBadges = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adVinBadgeLocator));
-        int totalAds = getTotalNumberOfAds();
-        int adsWithVinCount = vinBadges.size();
-        return totalAds == adsWithVinCount ? "True" : "False";
+        try {
+            List<WebElement> vinBadges = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adVinBadgeLocator));
+            int totalAds = getTotalNumberOfAds();
+            int adsWithVinCount = vinBadges.size();
+            boolean adsContainVin = totalAds == adsWithVinCount;
+            String result = adsContainVin ? "True" : "False";
+            logger.info("Ads contain VIN: {}", result);
+            return result;
+        } catch (Exception e) {
+            logger.error("Failed to check if ads contain VIN: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public List<String> getAdsEngineСapacity() {
         List<String> adEngineCapacities = new ArrayList<>();
-        List<WebElement> adEngineCapacitiesElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarParametersLocator));
-        for (WebElement adEngineCapacityElement : adEngineCapacitiesElements) {
-            String text = adEngineCapacityElement.getText();
-            String[] parts = text.split(",\\s*");
-            String engineCapacity = parts[1].replace(" л", "");
-            adEngineCapacities.add(engineCapacity);
+        try {
+            List<WebElement> adEngineCapacitiesElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarParametersLocator));
+            for (WebElement adEngineCapacityElement : adEngineCapacitiesElements) {
+                String text = adEngineCapacityElement.getText();
+                String[] parts = text.split(",\\s*");
+                String engineCapacity = parts[1].replace(" л", "");
+                adEngineCapacities.add(engineCapacity);
+            }
+            logger.info("Retrieved ads engine capacities: {}", adEngineCapacities);
+            return adEngineCapacities;
+        } catch (Exception e) {
+            logger.error("Failed to retrieve ads engine capacities: {}", e.getMessage());
+            throw e;
         }
-        return adEngineCapacities;
     }
 
     public String getAdEngineСapacityMin(String minEngine) {
         List<String> adEgineСapacities = getAdsEngineСapacity();
-        for (String adEgineСapacity : adEgineСapacities) {
-            double egineСapacity = Double.parseDouble(adEgineСapacity);
-            if (Utils.isItMin(egineСapacity, Double.parseDouble(minEngine))) {
-                return minEngine;
+        try {
+            for (String adEgineСapacity : adEgineСapacities) {
+                double egineСapacity = Double.parseDouble(adEgineСapacity);
+                if (Utils.isItMin(egineСapacity, Double.parseDouble(minEngine))) {
+                    logger.info("Min engine found: {}", minEngine);
+                    return minEngine;
+                }
             }
+            return null;
+        } catch (Exception e) {
+            logger.error("Failed to find min engine capacity: {}", e.getMessage());
+            throw e;
         }
-        return null;
-    }
-
-    public Set<String> getAdsEngineType() {
-        Set<String> adEngineTypes = new HashSet<>();
-        List<WebElement> adEngineTypeElements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(adCarParametersLocator));
-        for (WebElement adEngineTypeElement : adEngineTypeElements) {
-            String text = adEngineTypeElement.getText();
-            String[] parts = text.split(",\\s*");
-            String engineType = parts[2];
-            adEngineTypes.add(engineType);
-        }
-        return adEngineTypes;
     }
 }

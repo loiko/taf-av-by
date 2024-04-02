@@ -1,0 +1,201 @@
+2024-04-02 12:59:21,425 INFO a.BaseURLTest [main] Base URL test passed successfully
+2024-04-02 12:59:23,980 INFO a.LoginTest [main] Test 'testInvalidLoginAndPassword' passed successfully
+2024-04-02 12:59:24,241 INFO a.VinNumberTest [main] Test 'testCheckInvalidVinNumber' passed successfully
+2024-04-02 12:59:24,509 INFO a.VinNumberTest [main] Test 'testInvalidLoginAndPassword' passed successfully
+2024-04-02 12:59:25,278 INFO a.VinNumberTest [main] Test 'testSearchAdByVinNumber' passed successfully
+2024-04-02 12:59:25,340 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 12:59:35,084 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:35,084 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 12:59:38,316 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 12:59:38,317 INFO u.BaseTest [main] Home page opened
+2024-04-02 12:59:38,317 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:38,318 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 12:59:38,319 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:38,320 INFO b.a.t.p.AdsPage [main] AdsPage instance created
+2024-04-02 12:59:38,817 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 12:59:40,251 INFO b.a.t.p.BasePage [main] Navigated to ads page
+2024-04-02 12:59:40,252 INFO u.AdsPageTest [main] Ads page setup complete
+2024-04-02 12:59:40,754 ERROR b.a.t.p.AdsPage [main] Failed to enter max price: element not interactable
+  (Session info: chrome=123.0.6312.86)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [528279c590bd02e1de51b8e81915e4ad, sendKeysToElement {value=[Ljava.lang.CharSequence;@6acedf54, id=f.76A31DECFA45E5736C698E07265160EC.d.44548F32111B21C6D4E00F059C87BDBC.e.136}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.86, chrome: {chromedriverVersion: 123.0.6312.86 (9b72c47a0536..., userDataDir: C:\Users\nikol\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49819}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49819/devtoo..., se:cdpVersion: 123.0.6312.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (528279c590bd02e1de51b8e81915e4ad)] -> xpath: (//input[@id = 'p-9-price_usd'])[2]]
+Session ID: 528279c590bd02e1de51b8e81915e4ad
+2024-04-02 12:59:40,756 ERROR u.AdsPageTest [main] An unexpected error occurred during the test: element not interactable
+  (Session info: chrome=123.0.6312.86)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [528279c590bd02e1de51b8e81915e4ad, sendKeysToElement {value=[Ljava.lang.CharSequence;@6acedf54, id=f.76A31DECFA45E5736C698E07265160EC.d.44548F32111B21C6D4E00F059C87BDBC.e.136}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.86, chrome: {chromedriverVersion: 123.0.6312.86 (9b72c47a0536..., userDataDir: C:\Users\nikol\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49819}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49819/devtoo..., se:cdpVersion: 123.0.6312.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (528279c590bd02e1de51b8e81915e4ad)] -> xpath: (//input[@id = 'p-9-price_usd'])[2]]
+Session ID: 528279c590bd02e1de51b8e81915e4ad
+2024-04-02 12:59:40,771 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 12:59:41,109 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 12:59:41,156 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 12:59:46,758 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:46,759 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 12:59:49,478 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 12:59:49,478 INFO u.BaseTest [main] Home page opened
+2024-04-02 12:59:49,479 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:49,480 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 12:59:49,882 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 12:59:50,044 INFO b.a.t.p.HomePage [main] Main title text retrieved
+2024-04-02 12:59:50,143 INFO u.HomePageTest [main] Main title text matches the expected pattern
+2024-04-02 12:59:50,144 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 12:59:50,631 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 12:59:50,644 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 12:59:55,906 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:55,906 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 12:59:58,445 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 12:59:58,445 INFO u.BaseTest [main] Home page opened
+2024-04-02 12:59:58,445 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 12:59:58,446 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 12:59:58,840 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 12:59:58,932 INFO b.a.t.p.BasePage [main] Copyright text retrieved
+2024-04-02 12:59:58,955 INFO u.HomePageTest [main] Copyright text matches the expected value
+2024-04-02 12:59:58,955 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 12:59:59,187 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 13:01:21,918 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 13:01:29,683 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:01:29,684 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:01:32,183 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 13:01:32,183 INFO u.BaseTest [main] Home page opened
+2024-04-02 13:01:32,183 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:01:32,184 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:01:32,186 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:01:32,186 INFO b.a.t.p.AdsPage [main] AdsPage instance created
+2024-04-02 13:01:32,525 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 13:01:34,494 INFO b.a.t.p.BasePage [main] Navigated to ads page
+2024-04-02 13:01:34,494 INFO u.AdsPageTest [main] Ads page setup complete
+2024-04-02 13:01:34,686 INFO b.a.t.p.AdsPage [main] Max price entered: 35000
+2024-04-02 13:01:34,974 INFO b.a.t.p.AdsPage [main] Car brand dropdown clicked
+2024-04-02 13:01:37,051 INFO b.a.t.p.AdsPage [main] Car brand 'Toyota' selected
+2024-04-02 13:01:38,071 INFO b.a.t.p.AdsPage [main] Car model dropdown clicked
+2024-04-02 13:01:39,041 INFO b.a.t.p.AdsPage [main] Car model'RAV4' selected
+2024-04-02 13:01:39,934 INFO b.a.t.p.AdsPage [main] Car generation dropdown clicked
+2024-04-02 13:01:40,313 INFO b.a.t.p.AdsPage [main] Car generation'V' selected
+2024-04-02 13:01:40,629 INFO b.a.t.p.AdsPage [main] Min car year dropdown clicked
+2024-04-02 13:01:41,120 INFO b.a.t.p.AdsPage [main] Min car year '2020' selected
+2024-04-02 13:01:41,426 INFO b.a.t.p.AdsPage [main] Min engine dropdown clicked
+2024-04-02 13:01:42,090 INFO b.a.t.p.AdsPage [main] Min engine '2,5' selected
+2024-04-02 13:01:42,635 INFO b.a.t.p.AdsPage [main] Parameters button clicked
+2024-04-02 13:01:42,846 INFO b.a.t.p.AdsPage [main] Region dropdown clicked
+2024-04-02 13:01:43,072 INFO b.a.t.p.AdsPage [main] Region 'РњРёРЅСЃРєР°СЏ РѕР±Р».' selected
+2024-04-02 13:01:43,325 INFO b.a.t.p.AdsPage [main] Max mileage dropdown clicked
+2024-04-02 13:01:44,161 INFO b.a.t.p.AdsPage [main] Registration country dropdown clicked
+2024-04-02 13:01:44,469 INFO b.a.t.p.AdsPage [main] VIN checkbox clicked
+2024-04-02 13:01:44,610 INFO b.a.t.p.AdsPage [main] City dropdown clicked
+2024-04-02 13:01:44,820 INFO b.a.t.p.AdsPage [main] City  'РњРёРЅСЃРє' selected
+2024-04-02 13:01:46,263 INFO b.a.t.p.AdsPage [main] Show result button clicked
+2024-04-02 13:01:46,485 INFO b.a.t.p.AdsPage [main] Retrieved ads brands: Toyota
+2024-04-02 13:01:46,803 INFO b.a.t.p.AdsPage [main] Retrieved ads models: RAV4
+2024-04-02 13:01:47,292 INFO b.a.t.p.AdsPage [main] Retrieved ads generations: V
+2024-04-02 13:01:47,555 INFO b.a.t.p.AdsPage [main] Retrieved ads car years: [2020, 2021, 2020, 2020, 2020, 2020, 2021, 2020, 2020]
+2024-04-02 13:01:47,557 INFO b.a.t.U.Utils [main] Value 2020 is minimum 2020: true
+2024-04-02 13:01:47,557 INFO b.a.t.p.AdsPage [main] Min car year found: 2020
+2024-04-02 13:01:47,705 INFO b.a.t.p.AdsPage [main] Retrieved ads USD prices: [32000, 35000, 33500, 31174, 32500, 34500, 29900, 29950, 34000]
+2024-04-02 13:01:47,705 INFO b.a.t.U.Utils [main] Value 32000 is maximum 35000: true
+2024-04-02 13:01:47,705 INFO b.a.t.p.AdsPage [main] Max USD price found: 35000
+2024-04-02 13:01:48,316 INFO b.a.t.p.AdsPage [main] Retrieved ads engine capacities: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5]
+2024-04-02 13:01:48,316 INFO b.a.t.U.Utils [main] Value 2.5 is minimum 2.5: true
+2024-04-02 13:01:48,317 INFO b.a.t.p.AdsPage [main] Min engine found: 2.5
+2024-04-02 13:01:48,499 INFO b.a.t.p.AdsPage [main] Retrieved ads car mileages: [85000, 125809, 53900, 30000, 49000, 58000, 18000, 12700, 35000]
+2024-04-02 13:01:48,499 INFO b.a.t.U.Utils [main] Value 85000 is maximum 200000: true
+2024-04-02 13:01:48,500 INFO b.a.t.p.AdsPage [main] Max car mileage found: 200000
+2024-04-02 13:01:48,665 INFO b.a.t.p.AdsPage [main] Retrieved ads car cities: [РњРёРЅСЃРє]
+2024-04-02 13:01:48,706 INFO b.a.t.p.AdsPage [main] Total number of ads retrieved: 9
+2024-04-02 13:01:48,706 INFO b.a.t.p.AdsPage [main] Ads contain VIN: True
+2024-04-02 13:01:48,707 INFO u.AdsPageTest [main] Actual advertisement car parameters: {Brand=Toyota, Generation=V, Car year from=2020, Mileage from=200000, Model=RAV4, Engine capacity from=2.5, VIN=True, City=РњРёРЅСЃРє, Car price to=35000}
+2024-04-02 13:01:48,707 INFO u.AdsPageTest [main] Expected advertisement car parameters: {Brand=Toyota, Generation=V, Car year from=2020, Mileage from=200000, Model=RAV4, Engine capacity from=2.5, VIN=True, City=РњРёРЅСЃРє, Car price to=35000}
+2024-04-02 13:01:48,718 INFO u.AdsPageTest [main] Test 'SearchCarsByFilter' passed successfully
+2024-04-02 13:01:48,722 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 13:01:49,087 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 13:02:32,803 INFO a.BaseURLTest [main] Base URL test passed successfully
+2024-04-02 13:02:35,218 INFO a.LoginTest [main] Test 'testInvalidLoginAndPassword' passed successfully
+2024-04-02 13:02:35,510 INFO a.VinNumberTest [main] Test 'testCheckInvalidVinNumber' passed successfully
+2024-04-02 13:02:35,813 INFO a.VinNumberTest [main] Test 'testInvalidLoginAndPassword' passed successfully
+2024-04-02 13:02:39,008 ERROR a.VinNumberTest [main] Test 'testInvalidLoginAndPassword' failed: Cannot invoke "java.lang.Integer.intValue()" because the return value of "io.restassured.response.Response.path(String, String[])" is null
+2024-04-02 13:02:39,091 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 13:02:45,741 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:02:45,741 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:02:48,649 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 13:02:48,649 INFO u.BaseTest [main] Home page opened
+2024-04-02 13:02:48,650 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:02:48,650 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:02:48,652 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:02:48,653 INFO b.a.t.p.AdsPage [main] AdsPage instance created
+2024-04-02 13:02:49,040 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 13:02:50,731 INFO b.a.t.p.BasePage [main] Navigated to ads page
+2024-04-02 13:02:50,732 INFO u.AdsPageTest [main] Ads page setup complete
+2024-04-02 13:02:50,960 INFO b.a.t.p.AdsPage [main] Max price entered: 35000
+2024-04-02 13:02:51,338 INFO b.a.t.p.AdsPage [main] Car brand dropdown clicked
+2024-04-02 13:02:53,378 INFO b.a.t.p.AdsPage [main] Car brand 'Toyota' selected
+2024-04-02 13:02:54,138 INFO b.a.t.p.AdsPage [main] Car model dropdown clicked
+2024-04-02 13:02:54,898 INFO b.a.t.p.AdsPage [main] Car model'RAV4' selected
+2024-04-02 13:02:55,655 INFO b.a.t.p.AdsPage [main] Car generation dropdown clicked
+2024-04-02 13:02:55,894 INFO b.a.t.p.AdsPage [main] Car generation'V' selected
+2024-04-02 13:02:56,070 INFO b.a.t.p.AdsPage [main] Min car year dropdown clicked
+2024-04-02 13:02:56,324 INFO b.a.t.p.AdsPage [main] Min car year '2020' selected
+2024-04-02 13:02:56,540 INFO b.a.t.p.AdsPage [main] Min engine dropdown clicked
+2024-04-02 13:02:56,982 INFO b.a.t.p.AdsPage [main] Min engine '2,5' selected
+2024-04-02 13:02:57,254 INFO b.a.t.p.AdsPage [main] Parameters button clicked
+2024-04-02 13:02:57,402 INFO b.a.t.p.AdsPage [main] Region dropdown clicked
+2024-04-02 13:02:57,581 INFO b.a.t.p.AdsPage [main] Region 'Минская обл.' selected
+2024-04-02 13:02:57,777 INFO b.a.t.p.AdsPage [main] Max mileage dropdown clicked
+2024-04-02 13:02:58,430 INFO b.a.t.p.AdsPage [main] Registration country dropdown clicked
+2024-04-02 13:02:58,709 INFO b.a.t.p.AdsPage [main] VIN checkbox clicked
+2024-04-02 13:02:58,851 INFO b.a.t.p.AdsPage [main] City dropdown clicked
+2024-04-02 13:02:59,019 INFO b.a.t.p.AdsPage [main] City  'Минск' selected
+2024-04-02 13:03:00,238 INFO b.a.t.p.AdsPage [main] Show result button clicked
+2024-04-02 13:03:00,551 INFO b.a.t.p.AdsPage [main] Retrieved ads brands: Toyota
+2024-04-02 13:03:03,629 INFO b.a.t.p.AdsPage [main] Retrieved ads models: RAV4
+2024-04-02 13:03:05,014 INFO b.a.t.p.AdsPage [main] Retrieved ads generations: V
+2024-04-02 13:03:06,376 INFO b.a.t.p.AdsPage [main] Retrieved ads car years: [2020, 2021, 2020, 2020, 2020, 2020, 2021, 2020, 2020]
+2024-04-02 13:03:06,378 INFO b.a.t.U.Utils [main] Value 2020 is minimum 2020: true
+2024-04-02 13:03:06,378 INFO b.a.t.p.AdsPage [main] Min car year found: 2020
+2024-04-02 13:03:07,676 INFO b.a.t.p.AdsPage [main] Retrieved ads USD prices: [32000, 35000, 33500, 31174, 32500, 34500, 29900, 29950, 34000]
+2024-04-02 13:03:07,676 INFO b.a.t.U.Utils [main] Value 32000 is maximum 35000: true
+2024-04-02 13:03:07,677 INFO b.a.t.p.AdsPage [main] Max USD price found: 35000
+2024-04-02 13:03:08,989 INFO b.a.t.p.AdsPage [main] Retrieved ads engine capacities: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5]
+2024-04-02 13:03:08,989 INFO b.a.t.U.Utils [main] Value 2.5 is minimum 2.5: true
+2024-04-02 13:03:08,989 INFO b.a.t.p.AdsPage [main] Min engine found: 2.5
+2024-04-02 13:03:10,264 INFO b.a.t.p.AdsPage [main] Retrieved ads car mileages: [85000, 125809, 53900, 30000, 49000, 58000, 18000, 12700, 35000]
+2024-04-02 13:03:10,265 INFO b.a.t.U.Utils [main] Value 85000 is maximum 200000: true
+2024-04-02 13:03:10,265 INFO b.a.t.p.AdsPage [main] Max car mileage found: 200000
+2024-04-02 13:03:11,561 INFO b.a.t.p.AdsPage [main] Retrieved ads car cities: [Минск]
+2024-04-02 13:03:11,790 INFO b.a.t.p.AdsPage [main] Total number of ads retrieved: 9
+2024-04-02 13:03:11,791 INFO b.a.t.p.AdsPage [main] Ads contain VIN: True
+2024-04-02 13:03:11,791 INFO u.AdsPageTest [main] Actual advertisement car parameters: {Brand=Toyota, Generation=V, Car year from=2020, Mileage from=200000, Model=RAV4, Engine capacity from=2.5, VIN=True, City=Минск, Car price to=35000}
+2024-04-02 13:03:11,792 INFO u.AdsPageTest [main] Expected advertisement car parameters: {Brand=Toyota, Generation=V, Car year from=2020, Mileage from=200000, Model=RAV4, Engine capacity from=2.5, VIN=True, City=Минск, Car price to=35000}
+2024-04-02 13:03:11,818 INFO u.AdsPageTest [main] Test 'SearchCarsByFilter' passed successfully
+2024-04-02 13:03:11,820 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 13:03:12,155 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 13:03:12,175 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 13:03:16,864 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:03:16,864 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:03:18,931 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 13:03:18,931 INFO u.BaseTest [main] Home page opened
+2024-04-02 13:03:18,931 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:03:18,932 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:03:19,333 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 13:03:19,426 INFO b.a.t.p.HomePage [main] Main title text retrieved
+2024-04-02 13:03:19,472 INFO u.HomePageTest [main] Main title text matches the expected pattern
+2024-04-02 13:03:19,472 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 13:03:19,687 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 13:03:19,697 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 13:03:24,397 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:03:24,397 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:03:26,670 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 13:03:26,670 INFO u.BaseTest [main] Home page opened
+2024-04-02 13:03:26,671 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 13:03:26,671 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 13:03:27,024 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 13:03:27,114 INFO b.a.t.p.BasePage [main] Copyright text retrieved
+2024-04-02 13:03:27,140 INFO u.HomePageTest [main] Copyright text matches the expected value
+2024-04-02 13:03:27,140 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 13:03:27,370 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 13:04:31,960 INFO a.VinNumberTest [main] Test 'testSearchAdByVinNumber' passed successfully

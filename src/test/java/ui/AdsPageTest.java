@@ -2,6 +2,8 @@ package ui;
 
 import by.av.taf.po.AdsPage;
 import by.av.taf.po.HomePage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AdsPageTest extends BaseTest {
     private HomePage homePage;
     private AdsPage adsPage;
+    private static final Logger logger = LogManager.getLogger();
     private final String BRAND = "Toyota";
     private final String MODEL = "RAV4";
     private final String GENERATION = "V";
@@ -29,28 +32,38 @@ public class AdsPageTest extends BaseTest {
         adsPage = new AdsPage();
         homePage.closeCookies();
         homePage.goAdsPage();
+        logger.info("Ads page setup complete");
     }
 
     @Test
     public void testSearchCarsByFilter() throws InterruptedException {
-        adsPage
-                .enterPriceMax(MAX_PRICE)
-                .selectBrand(BRAND)
-                .selectModel(MODEL)
-                .selectGeneration(GENERATION)
-                .selectCarYearMin(MIN_CAR_YEAR)
-                .selectEngineMin(MIN_ENGINE)
-                .clickParametersButton()
-                .selectRegion(REGION)
-                .selectMaxMileage(MAX_MILEAGE)
-                .selectRegistrationCountry(REGISTRATION_COUNTRY)
-                .clickVinCheckbox()
-                .selectCity(CITY)
-                .clickShowResultButton();
+        try {
+            adsPage
+                    .enterPriceMax(MAX_PRICE)
+                    .selectBrand(BRAND)
+                    .selectModel(MODEL)
+                    .selectGeneration(GENERATION)
+                    .selectCarYearMin(MIN_CAR_YEAR)
+                    .selectEngineMin(MIN_ENGINE)
+                    .clickParametersButton()
+                    .selectRegion(REGION)
+                    .selectMaxMileage(MAX_MILEAGE)
+                    .selectRegistrationCountry(REGISTRATION_COUNTRY)
+                    .clickVinCheckbox()
+                    .selectCity(CITY)
+                    .clickShowResultButton();
 
-        Map<String, String> actualAdCarParameters = getActualAdCarParameters();
-        Map<String, String> expectedAdCarParameters = getExpectedAdCarParameters();
-        assertEquals(expectedAdCarParameters, actualAdCarParameters);
+            Map<String, String> actualAdCarParameters = getActualAdCarParameters();
+            Map<String, String> expectedAdCarParameters = getExpectedAdCarParameters();
+            assertEquals(expectedAdCarParameters, actualAdCarParameters);
+            logger.info("Test 'SearchCarsByFilter' passed successfully");
+        } catch (AssertionError e) {
+            logger.error("Assertion error occurred during the test: {}", e.getMessage());
+            throw e;
+        } catch (Exception e) {
+            logger.error("An unexpected error occurred during the test: {}", e.getMessage());
+            throw e;
+        }
     }
 
     private Map<String, String> getActualAdCarParameters() {
@@ -64,6 +77,7 @@ public class AdsPageTest extends BaseTest {
         actualAdCarParameters.put("Mileage from", adsPage.getAdCarMileageMax(formatMileage(MAX_MILEAGE)));
         actualAdCarParameters.put("City", adsPage.getAdsCity());
         actualAdCarParameters.put("VIN", adsPage.isAdsContainVin());
+        logger.info("Actual advertisement car parameters: {}", actualAdCarParameters);
         return actualAdCarParameters;
     }
 
@@ -78,6 +92,7 @@ public class AdsPageTest extends BaseTest {
         expectedAdCarParameters.put("Mileage from", formatMileage(MAX_MILEAGE));
         expectedAdCarParameters.put("City", CITY);
         expectedAdCarParameters.put("VIN", "True");
+        logger.info("Expected advertisement car parameters: {}", expectedAdCarParameters);
         return expectedAdCarParameters;
     }
 
