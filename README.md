@@ -40,14 +40,14 @@ To install the plugin:
 2. Enter the name of the project, select the Freestyle project and click OK
 3. On the Configuration page, configure the project settings. The project uses the following configuration:
 4. Source Code Management -> **Git** (setting up a repository with source code):
-    1. Repository URL = https://github.com/loiko/taf-av-by.git
-    2. Credentials -> jenkins/******
-    3. Branches to build = */main
-5. Build Steps -> **Invoke top-level Maven targets**:
-    1. Maven Version -> Maven395
-    2. Goals = tests
-6. Post-build Actions -> **Allure Report**:
-    1. Path = target/allure-results
+   - Repository URL = https://github.com/loiko/taf-av-by.git
+   - Credentials → jenkins/******
+   - Branches to build = */main
+5. Build Steps → **Invoke top-level Maven targets**:
+   - Maven Version → Maven395
+   - Goals = tests
+6. Post-build Actions → **Allure Report**:
+   - Path = target/allure-results
 7. Click **Save**
 
 ## To run autotests in Jenkins:
@@ -55,7 +55,7 @@ To install the plugin:
 2. Click **Build now**
 3. The result of running the build can be viewed in the Allure report
 
-![This is an image](/images/screenshots/jenkins.jpg)
+![This is an image](/img/screenshots/jenkins.jpg)
 
 ## Local launch of autotests
 To run the project locally, install [Maven](https://maven.apache.org/download.cgi) and [Java](https://www.java.com/en/download/) to the local machine, enter the following commands in the console:
@@ -77,4 +77,4 @@ mvn allure:serve
 ## Sample report
 After completing the autotests, the following report will open in the browser:
 
-![This is an image](/images/screenshots/allure-report-1.PNG)
+![This is an image](/img/screenshots/allure-report.jpg)
