@@ -22,7 +22,7 @@ To deploy Jenkins locally in Docker:
 ```bash
 docker build . -t myjenkins
 ```
-3. Run image: 
+3. Run image
 ```bash
 docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home myjenkins
 ```
