@@ -16,6 +16,7 @@ public class BaseTest {
     public void driversSetUp() {
         HomePage homePage = new HomePage();
         homePage.openHomePage();
+        homePage.closeCookies();
         logger.info("Home page opened");
     }
 

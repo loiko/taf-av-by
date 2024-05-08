@@ -283,3 +283,73 @@ Session ID: 528279c590bd02e1de51b8e81915e4ad
 2024-04-02 17:45:52,114 INFO u.HomePageTest [main] Copyright text matches the expected value
 2024-04-02 17:45:52,115 INFO b.a.t.s.Singleton [main] Quitting WebDriver
 2024-04-02 17:45:52,332 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 21:12:09,487 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 21:12:21,849 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 21:12:21,849 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 21:12:26,213 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 21:12:26,810 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 21:12:26,811 INFO u.BaseTest [main] Home page opened
+2024-04-02 21:12:26,832 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 21:12:27,545 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 21:13:52,403 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 21:14:06,013 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 21:14:06,014 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 21:14:06,122 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 21:14:10,170 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 21:14:10,171 INFO u.BaseTest [main] Home page opened
+2024-04-02 21:14:10,182 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 21:14:10,183 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 21:14:10,415 INFO b.a.t.p.BasePage [main] Copyright text retrieved
+2024-04-02 21:14:10,498 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 21:14:11,102 INFO u.BaseTest [main] WebDriver closed
+2024-04-02 21:20:02,519 INFO b.a.t.s.Singleton [main] Creating new WebDriver instance
+2024-04-02 21:20:14,220 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 21:20:14,222 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 21:20:18,017 INFO b.a.t.p.HomePage [main] Opened the home page: https://av.by/
+2024-04-02 21:20:18,946 INFO b.a.t.p.BasePage [main] Cookies closed
+2024-04-02 21:20:18,947 INFO u.BaseTest [main] Home page opened
+2024-04-02 21:20:18,949 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 21:20:18,950 INFO b.a.t.p.HomePage [main] HomePage instance created
+2024-04-02 21:20:18,953 INFO b.a.t.p.BasePage [main] BasePage instance created
+2024-04-02 21:20:18,954 INFO b.a.t.p.AdsPage [main] AdsPage instance created
+2024-04-02 21:20:21,404 INFO b.a.t.p.BasePage [main] Navigated to ads page
+2024-04-02 21:20:22,501 INFO b.a.t.p.AdsPage [main] Max price entered: 35000
+2024-04-02 21:20:23,021 INFO b.a.t.p.AdsPage [main] Car brand dropdown clicked
+2024-04-02 21:20:26,091 INFO b.a.t.p.AdsPage [main] Car brand 'Toyota' selected
+2024-04-02 21:20:26,991 INFO b.a.t.p.AdsPage [main] Car model dropdown clicked
+2024-04-02 21:20:28,069 INFO b.a.t.p.AdsPage [main] Car model'RAV4' selected
+2024-04-02 21:20:28,983 INFO b.a.t.p.AdsPage [main] Car generation dropdown clicked
+2024-04-02 21:20:29,402 INFO b.a.t.p.AdsPage [main] Car generation'V' selected
+2024-04-02 21:20:29,797 INFO b.a.t.p.AdsPage [main] Min car year dropdown clicked
+2024-04-02 21:20:30,282 INFO b.a.t.p.AdsPage [main] Min car year '2020' selected
+2024-04-02 21:20:30,577 INFO b.a.t.p.AdsPage [main] Min engine dropdown clicked
+2024-04-02 21:20:31,176 INFO b.a.t.p.AdsPage [main] Min engine '2,5' selected
+2024-04-02 21:20:31,665 INFO b.a.t.p.AdsPage [main] Parameters button clicked
+2024-04-02 21:20:31,859 INFO b.a.t.p.AdsPage [main] Region dropdown clicked
+2024-04-02 21:20:32,171 INFO b.a.t.p.AdsPage [main] Region 'Минская обл.' selected
+2024-04-02 21:20:32,436 INFO b.a.t.p.AdsPage [main] Max mileage dropdown clicked
+2024-04-02 21:20:33,269 INFO b.a.t.p.AdsPage [main] Registration country dropdown clicked
+2024-04-02 21:20:33,646 INFO b.a.t.p.AdsPage [main] VIN checkbox clicked
+2024-04-02 21:20:33,898 INFO b.a.t.p.AdsPage [main] City dropdown clicked
+2024-04-02 21:20:34,162 INFO b.a.t.p.AdsPage [main] City  'Минск' selected
+2024-04-02 21:20:36,428 INFO b.a.t.p.AdsPage [main] Show result button clicked
+2024-04-02 21:20:37,138 INFO b.a.t.p.AdsPage [main] Retrieved ads brands: Toyota
+2024-04-02 21:20:38,377 INFO b.a.t.p.AdsPage [main] Retrieved ads models: RAV4
+2024-04-02 21:20:38,754 INFO b.a.t.p.AdsPage [main] Retrieved ads generations: V
+2024-04-02 21:20:39,079 INFO b.a.t.p.AdsPage [main] Retrieved ads car years: [2020, 2020, 2021, 2020, 2021, 2022, 2020, 2022, 2020, 2020, 2021, 2020, 2022, 2021, 2020, 2020, 2022, 2021]
+2024-04-02 21:20:39,084 INFO b.a.t.U.Utils [main] Value 2020 is minimum 2020: true
+2024-04-02 21:20:39,084 INFO b.a.t.p.AdsPage [main] Min car year found: 2020
+2024-04-02 21:20:39,464 INFO b.a.t.p.AdsPage [main] Retrieved ads USD prices: [29950, 32500, 35000, 32000, 35000, 37700, 33500, 39800, 31174, 49900, 35900, 34500, 36500, 29900, 35600, 34000, 39200, 40000]
+2024-04-02 21:20:39,465 INFO b.a.t.U.Utils [main] Value 29950 is maximum 35000: true
+2024-04-02 21:20:39,465 INFO b.a.t.p.AdsPage [main] Max USD price found: 35000
+2024-04-02 21:20:39,779 INFO b.a.t.p.AdsPage [main] Retrieved ads engine capacities: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5]
+2024-04-02 21:20:39,779 INFO b.a.t.U.Utils [main] Value 2.5 is minimum 2.5: true
+2024-04-02 21:20:39,779 INFO b.a.t.p.AdsPage [main] Min engine found: 2.5
+2024-04-02 21:20:40,101 INFO b.a.t.p.AdsPage [main] Retrieved ads car mileages: [12700, 49000, 3500, 85000, 125809, 8900, 53900, 49800, 30000, 6892, 55638, 58000, 4800, 18000, 104000, 35000, 39000, 44000]
+2024-04-02 21:20:40,101 INFO b.a.t.U.Utils [main] Value 12700 is maximum 200000: true
+2024-04-02 21:20:40,101 INFO b.a.t.p.AdsPage [main] Max car mileage found: 200000
+2024-04-02 21:20:40,445 INFO b.a.t.p.AdsPage [main] Retrieved ads car cities: [Минск]
+2024-04-02 21:20:40,496 INFO b.a.t.p.AdsPage [main] Total number of ads retrieved: 18
+2024-04-02 21:20:40,496 INFO b.a.t.p.AdsPage [main] Ads contain VIN: True
+2024-04-02 21:20:40,517 INFO b.a.t.s.Singleton [main] Quitting WebDriver
+2024-04-02 21:20:41,096 INFO u.BaseTest [main] WebDriver closed

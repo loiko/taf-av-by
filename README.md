@@ -1,7 +1,7 @@
 # Autotests for a website av.by
 
 * The project is developed to cover the site with UI and API autotests
-* The UI tests are designed according to the Page Object Model (ROM) and PageFactory patterns to easily support the tests in case of changes in the site code
+* The UI tests are designed according to the Page Object Model (ROM) pattern to easily support the tests in case of changes in the site code
 * Tests can be run locally or using Jenkins
 
 ## Technologies used
